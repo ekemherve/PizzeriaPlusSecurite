@@ -6,6 +6,16 @@
         <title>${titre}</title>
     </head>
     <body>
-        Hello this is the home page.
+
+        <div class="container">
+            <div class="row">
+                <div id="home" class="col-4 offset-5">
+                    <a href="${pageContext.request.contextPath}/login" >Login</a>
+                    or
+                    <a href="${pageContext.request.contextPath}/signup" >Sign up</a>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>

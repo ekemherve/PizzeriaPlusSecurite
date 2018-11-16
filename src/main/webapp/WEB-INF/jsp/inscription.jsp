@@ -8,14 +8,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" >
     <title>${titre}</title>
+    <link type="text/css" href="<spring:url value='/css/signup.css' />" rel="stylesheet">
 </head>
 <body>
 <div class="container">
-
-
     <div class="row">
         <div class="col-lg-6">
-            <form:form method="post" action="/pizzaland/inscription" modelAttribute="currentUser">
+            <form:form method="post" action="${pageContext.request.contextPath}/indcription" modelAttribute="currentUser">
                 <div class="form-group">
                     <form:label path="username"><label>Username</label></form:label>
                     <form:input path="username" cssClass="form-control"></form:input>
