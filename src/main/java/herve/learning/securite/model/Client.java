@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Client {
 
     private Long id;
+    private String username;
     private String firstname;
     private String lastname;
     private String email;
@@ -13,15 +14,9 @@ public class Client {
     public Client() {
     }
 
-    public Client(String firstname, String lastname, String email, String password) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.password = password;
-    }
-
-    public Client(Long id, String firstname, String lastname, String email, String password) {
+    public Client(Long id, String username, String firstname, String lastname, String email, String password) {
         this.id = id;
+        this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -34,6 +29,14 @@ public class Client {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getFirstname() {
@@ -84,7 +87,9 @@ public class Client {
     @Override
     public String toString() {
         return "Client{" +
-                "firstname='" + firstname + '\'' +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +

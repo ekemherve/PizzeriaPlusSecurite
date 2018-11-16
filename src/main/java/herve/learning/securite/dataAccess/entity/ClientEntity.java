@@ -9,6 +9,7 @@ import java.util.Objects;
 public class ClientEntity {
 
     private Long id;
+    private String username;
     private String firstname;
     private String lastname;
     private String email;
@@ -17,8 +18,9 @@ public class ClientEntity {
     public ClientEntity() {
     }
 
-    public ClientEntity(Long id, String firstname, String lastname, String email, String password) {
+    public ClientEntity(Long id, String username, String firstname, String lastname, String email, String password) {
         this.id = id;
+        this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -31,6 +33,14 @@ public class ClientEntity {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getFirstname() {
@@ -82,6 +92,7 @@ public class ClientEntity {
     public String toString() {
         return "ClientEntity{" +
                 "id=" + id +
+                ", username='" + username + '\'' +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
