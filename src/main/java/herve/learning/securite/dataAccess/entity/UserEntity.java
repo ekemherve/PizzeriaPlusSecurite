@@ -4,8 +4,8 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "clients")
-public class ClientEntity {
+@Table(name = "users")
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +26,10 @@ public class ClientEntity {
     @Column(name = "password")
     private String password;
 
-    public ClientEntity() {
+    public UserEntity() {
     }
 
-    public ClientEntity(Long id, String username, String firstname, String lastname, String email, String password) {
+    public UserEntity(Long id, String username, String firstname, String lastname, String email, String password) {
         this.id = id;
         this.username = username;
         this.firstname = firstname;
@@ -89,8 +89,8 @@ public class ClientEntity {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof ClientEntity)) return false;
-        ClientEntity that = (ClientEntity) o;
+        if (!(o instanceof UserEntity)) return false;
+        UserEntity that = (UserEntity) o;
         return Objects.equals(getEmail(), that.getEmail());
     }
 
@@ -101,7 +101,7 @@ public class ClientEntity {
 
     @Override
     public String toString() {
-        return "ClientEntity{" +
+        return "UserEntity{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", firstname='" + firstname + '\'' +

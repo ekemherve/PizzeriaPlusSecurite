@@ -2,7 +2,7 @@ package herve.learning.securite.model;
 
 import java.util.Objects;
 
-public class Client {
+public class User {
 
     private Long id;
     private String username;
@@ -11,10 +11,10 @@ public class Client {
     private String email;
     private String password;
 
-    public Client() {
+    public User() {
     }
 
-    public Client(Long id, String username, String firstname, String lastname, String email, String password) {
+    public User(Long id, String username, String firstname, String lastname, String email, String password) {
         this.id = id;
         this.username = username;
         this.firstname = firstname;
@@ -74,9 +74,9 @@ public class Client {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Client)) return false;
-        Client client = (Client) o;
-        return Objects.equals(getEmail(), client.getEmail());
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return Objects.equals(getEmail(), user.getEmail());
     }
 
     @Override
@@ -86,7 +86,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" +
+        return "User{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", firstname='" + firstname + '\'' +
