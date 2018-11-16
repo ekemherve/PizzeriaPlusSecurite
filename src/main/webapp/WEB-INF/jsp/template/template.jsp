@@ -29,25 +29,30 @@
                 </li>
             </ul>
 
-            <div class="col-3">
+            <span class="navbar-text " style="color: cadetblue">
                 <sec:authorize access="isAuthenticated()">
-                    <ul class="nav navbar-nav">
-                        <li style="color: cadetblue"><sec:authentication property="principal.username"/></li>
-                    </ul>
+                    <sec:authentication property="principal.username"/>
                 </sec:authorize>
-            </div>
+            </span>
+            <%--<ul class="navbar-nav mr-auto mt-2 mt-lg-0">--%>
+                <%--<sec:authorize access="isAuthenticated()">--%>
+                    <%--<li class="nav-item">--%>
+                        <%--<li style="color: cadetblue"><sec:authentication property="principal.username"/></li>--%>
+                    <%--</li>--%>
+                <%--</sec:authorize>--%>
+            <%--</ul>--%>
 
             <ul class="nav navbar-nav navbar-right">
-                <li>
+                <li class="nav-item">
                     <sec:authorize access="isAuthenticated()">
                         <ul class="nav navbar-nav">
                             <%--<li style="color: cadetblue"><sec:authentication property="principal.username"/></li>--%>
-                            <li><a href="${pageContext.request.contextPath}/logout" class ="btn btn-warning btn-sm">Logout</a></li>
+                            <li class="nav-item"><a href="${pageContext.request.contextPath}/logout" class ="btn btn-warning btn-sm">Logout</a></li>
                         </ul>
                     </sec:authorize>
                     <sec:authorize access="!isAuthenticated()">
                         <%--<ul class="nav navbar-nav">--%>
-                            <li><a href="${pageContext.request.contextPath}/login" class ="btn btn-warning btn-sm">Login</a></li>
+                            <li class="nav-item"><a href="${pageContext.request.contextPath}/login" class ="btn btn-warning btn-sm">Login</a></li>
                         <%--</ul>--%>
                     </sec:authorize>
                 </li>
