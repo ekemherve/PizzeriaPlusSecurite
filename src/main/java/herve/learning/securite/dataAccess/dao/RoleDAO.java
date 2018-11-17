@@ -26,7 +26,13 @@ public class RoleDAO {
         Set<RoleEntity> roleEntities = roleRepository.findAll().stream().collect(Collectors.toSet());
 
         return roleEntities.stream().
-                map(roleEntity -> roleProviderConverter.RoleEntityToRole(roleEntity)).
+                map(roleEntity -> roleProviderConverter.roleEntityToRole(roleEntity)).
                 collect(Collectors.toSet());
+    }
+
+    public Role save(Role role) {
+
+        RoleEntity roleEntity = roleRepository.save(roleProviderConverter.roleToRoleEntity(role));
+        return roleProviderConverter.roleEntityToRole(roleEntity);
     }
 }

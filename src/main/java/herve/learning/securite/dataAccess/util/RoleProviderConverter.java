@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class RoleProviderConverter {
 
-    public RoleEntity RoleToRoleEntity(Role role){
+    public RoleEntity roleToRoleEntity(Role role){
 
         RoleEntity roleEntity = new RoleEntity();
 
@@ -17,7 +17,7 @@ public class RoleProviderConverter {
         return roleEntity;
     }
 
-    public Role RoleEntityToRole(RoleEntity roleEntity){
+    public Role roleEntityToRole(RoleEntity roleEntity){
 
         Role role = new Role();
         role.setId(roleEntity.getId());
