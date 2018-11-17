@@ -36,10 +36,12 @@ public class SignUpController {
     @RequestMapping(method = RequestMethod.POST)
     public String signup(Model model, @ModelAttribute(CURRENT_USER) User user, final BindingResult errors) {
 
+        System.out.println(user);
+
         if(errors.hasErrors())
             return "redirect:/signup";
 
-        return "redirect:/home";
+        return "redirect:/";
     }
 
 }
