@@ -29,11 +29,14 @@
                 </li>
             </ul>
 
-            <span class="navbar-text " style="color: cadetblue">
-                <sec:authorize access="isAuthenticated()">
-                    <sec:authentication property="principal.username"/>
-                </sec:authorize>
-            </span>
+            <ul class="navbar-nav mr-auto ">
+                <span class="navbar-text " style="color: cadetblue">
+                    <sec:authorize access="isAuthenticated()">
+                        <sec:authentication property="principal.username"/>
+                    </sec:authorize>
+                    <c:if test="${currentUser != null}">Bienvenu(e) ${currentUser.firstname}</c:if>
+                </span>
+            </ul>
             <%--<ul class="navbar-nav mr-auto mt-2 mt-lg-0">--%>
                 <%--<sec:authorize access="isAuthenticated()">--%>
                     <%--<li class="nav-item">--%>

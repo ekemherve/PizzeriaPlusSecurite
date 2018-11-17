@@ -38,6 +38,8 @@ public class SignUpController {
 
         System.out.println(user);
 
+
+
         if(errors.hasErrors())
             return "redirect:/signup";
 
