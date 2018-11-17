@@ -58,12 +58,17 @@ public class Role {
         return Objects.hash(getRoleEnum());
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "Role{" +
                 "id=" + id +
                 ", roleEnum=" + roleEnum +
                 ", users=" + users +
                 '}';
+    }*/
+
+    @Override
+    public String toString() {
+        return ""+ roleEnum;
     }
 }

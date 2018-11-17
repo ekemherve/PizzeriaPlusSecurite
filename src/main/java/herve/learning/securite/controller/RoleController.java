@@ -17,8 +17,14 @@ public class RoleController {
     @Autowired
     private RoleService roleService;
 
+
     @RequestMapping(method = RequestMethod.GET)
-    public String home(Model model) {
+    public String home(Model model, @ModelAttribute("role") Role role) {
+
+        if(role != null)
+            model.addAttribute("role", new Role());
+
+        model.addAttribute("roles", roleService.getRoles());
 
         return "integrated:role";
     }
@@ -26,13 +32,12 @@ public class RoleController {
     @RequestMapping(method = RequestMethod.POST)
     public String register(Model model, @ModelAttribute("role")Role role, final BindingResult errors) {
 
+
         if(errors.hasErrors())
             return "integrated:errors";
 
         Role roleSaved = roleService.save(role);
 
-        System.out.println(roleSaved);
-
-        return "redirect:/home";
+        return "redirect:/";
     }
 }
