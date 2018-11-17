@@ -1,6 +1,7 @@
 package herve.learning.securite.dataAccess.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 @Entity
@@ -20,7 +21,8 @@ public class UserEntity {
     @Column(name = "lastname")
     private String lastname;
 
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
+    @NotNull
     private String email;
 
     @Column(name = "password")

@@ -1,6 +1,8 @@
 package herve.learning.securite.controller;
 
 import herve.learning.securite.model.User;
+import herve.learning.securite.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +18,8 @@ import static herve.learning.securite.model.Constant.CURRENT_USER;
 @SessionAttributes({CURRENT_USER})
 public class SignUpController {
 
+    @Autowired
+    private UserService userService;
 
     @ModelAttribute(CURRENT_USER)
     public User client(){
@@ -36,10 +40,10 @@ public class SignUpController {
     @RequestMapping(method = RequestMethod.POST)
     public String signup(Model model, @ModelAttribute(CURRENT_USER) User user, final BindingResult errors) {
 
-        System.out.println(user);
+        if(userService.save(user) != null)
+            model.addAttribute(CURRENT_USER, user);
 
-
-
+        //Ne pas oublier de gerer l'erreur du au au mot de passe non identiques
         if(errors.hasErrors())
             return "redirect:/signup";
 
