@@ -26,7 +26,7 @@ public class UserProviderConverter {
     public User userEntityToUser(UserEntity userEntity) {
 
         User user = new User(userEntity.getId(), userEntity.getUsername(), userEntity.getFirstname(),
-                            userEntity.getLastname(), userEntity.getEmail(), userEntity.getPassword());
+                            userEntity.getLastname(), userEntity.getEmail(), userEntity.getPassword(), null);
 
         user.setRole(roleProviderConverter.roleEntityToRole(userEntity.getRole()));
 

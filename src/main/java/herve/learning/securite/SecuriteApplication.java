@@ -2,7 +2,6 @@ package herve.learning.securite;
 
 import herve.learning.securite.dataAccess.entity.RoleEntity;
 import herve.learning.securite.dataAccess.repository.RoleRepository;
-import herve.learning.securite.model.Role;
 import herve.learning.securite.model.RoleEnum;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -20,7 +19,7 @@ public class SecuriteApplication {
         SpringApplication.run(SecuriteApplication.class, args);
     }
 
-    /*@Bean
+    @Bean
     CommandLineRunner commandLineRunner(){
 
         return args -> {
@@ -34,5 +33,5 @@ public class SecuriteApplication {
             roleRepository.save(user);
             roleRepository.save(admin);
         };
-    }*/
+    }
 }

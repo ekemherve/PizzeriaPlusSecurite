@@ -16,25 +16,6 @@ public class User {
     public User() {
     }
 
-    public User(Long id, String username, String firstname, String lastname, String email, String password) {
-        this.id = id;
-        this.username = username;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.password = password;
-    }
-
-    public User(Long id, String username, String firstname, String lastname, String email, String password, String passwordConfirmed) {
-        this.id = id;
-        this.username = username;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.password = password;
-        this.passwordConfirmed = passwordConfirmed;
-    }
-
     public User(Long id, String username, String firstname, String lastname, String email, String password, Role role) {
         this.id = id;
         this.username = username;
@@ -45,7 +26,8 @@ public class User {
         this.role = role;
     }
 
-    public User(String username, String firstname, String lastname, String email, String password, String passwordConfirmed, Role role) {
+    public User(Long id, String username, String firstname, String lastname, String email, String password, String passwordConfirmed, Role role) {
+        this.id = id;
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
