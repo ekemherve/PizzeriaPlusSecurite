@@ -13,7 +13,7 @@ public class UserService {
 
     public User save(User user){
 
-        if(user != null && user.getPassword().equals(user.getPasswordConfirmed())) {
+        if(user != null && (user.getPassword().equals(user.getPasswordConfirmed()))) {
             return userDAO.save(user);
         }
 

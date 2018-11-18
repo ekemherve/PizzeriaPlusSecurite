@@ -11,6 +11,7 @@ public class User {
     private String email;
     private String password;
     private String passwordConfirmed;
+    private Role role;
 
     public User() {
     }
@@ -32,6 +33,26 @@ public class User {
         this.email = email;
         this.password = password;
         this.passwordConfirmed = passwordConfirmed;
+    }
+
+    public User(Long id, String username, String firstname, String lastname, String email, String password, Role role) {
+        this.id = id;
+        this.username = username;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+
+    public User(String username, String firstname, String lastname, String email, String password, String passwordConfirmed, Role role) {
+        this.username = username;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.passwordConfirmed = passwordConfirmed;
+        this.role = role;
     }
 
     public Long getId() {
@@ -90,6 +111,14 @@ public class User {
         this.passwordConfirmed = passwordConfirmed;
     }
 
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -113,6 +142,7 @@ public class User {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", passwordConfirmed='" + passwordConfirmed + '\'' +
+                ", role=" + role +
                 '}';
     }
 }

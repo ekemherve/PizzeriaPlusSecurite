@@ -34,7 +34,7 @@
                     <sec:authorize access="isAuthenticated()">
                         <sec:authentication property="principal.username"/>
                     </sec:authorize>
-                    <c:if test="${currentUser != null}">Bienvenu(e) ${currentUser.firstname}</c:if>
+                    <c:if test="${currentUser != null && currentUser.username != null}">Bienvenu(e) ${currentUser.firstname}</c:if>
                 </span>
             </ul>
             <ul class="nav navbar-nav navbar-right">

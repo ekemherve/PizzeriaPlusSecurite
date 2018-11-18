@@ -28,16 +28,21 @@ public class UserEntity {
     @Column(name = "password")
     private String password;
 
+    @NotNull
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "role", referencedColumnName = "id")
+    private RoleEntity role;
+
     public UserEntity() {
     }
 
-    public UserEntity(Long id, String username, String firstname, String lastname, String email, String password) {
-        this.id = id;
+    public UserEntity(String username, String firstname, String lastname, String email, String password, RoleEntity role) {
         this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
 
     public Long getId() {
@@ -88,6 +93,14 @@ public class UserEntity {
         this.password = password;
     }
 
+    public RoleEntity getRole() {
+        return role;
+    }
+
+    public void setRole(RoleEntity role) {
+        this.role = role;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -110,6 +123,7 @@ public class UserEntity {
                 ", lastname='" + lastname + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", role=" + role +
                 '}';
     }
 }

@@ -47,7 +47,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <form:label path="passwordConfirmed">ConfirmPassword</form:label>
-                                <form:input path="passwordConfirmed" type="password" csslass="form-control"/>
+                                <form:password path="passwordConfirmed" csslass="form-control"/>
                             </div>
                         </div>
 

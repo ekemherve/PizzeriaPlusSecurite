@@ -1,7 +1,7 @@
 package herve.learning.securite.dataAccess.dao;
 
 import herve.learning.securite.dataAccess.entity.UserEntity;
-import herve.learning.securite.dataAccess.repository.ClientRepository;
+import herve.learning.securite.dataAccess.repository.UserRepository;
 import herve.learning.securite.dataAccess.util.UserProviderConverter;
 import herve.learning.securite.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,13 +20,13 @@ public class UserDAO {
     private UserProviderConverter userProviderConverter;
 
     @Autowired
-    private ClientRepository clientRepository;
+    private UserRepository userRepository;
 
     @Autowired
 
     public Set<User> findAll() {
 
-        Set<UserEntity> clientEntities =  clientRepository.findAll().stream().collect(Collectors.toSet());
+        Set<UserEntity> clientEntities =  userRepository.findAll().stream().collect(Collectors.toSet());
 
         return clientEntities.stream().
                     map(userEntity -> userProviderConverter.userEntityToUser(userEntity)).
@@ -35,7 +35,7 @@ public class UserDAO {
 
     public User save(User user) {
 
-        UserEntity userEntity = clientRepository.save(userProviderConverter.userToUserEntity(user));
+        UserEntity userEntity = userRepository.save(userProviderConverter.userToUserEntity(user));
 
         return userProviderConverter.userEntityToUser(userEntity);
     }

@@ -22,15 +22,15 @@ public class RoleEntity {
     @Enumerated(EnumType.STRING)
     private RoleEnum role;
 
-    //@OneToMany(fetch = FetchType.LAZY, mappedBy = "role")
-    //Set<UserEntity> userEntities = new HashSet<>();
+    @OneToMany(mappedBy = "role")
+    Set<UserEntity> userEntities = new HashSet<>();
 
     public RoleEntity() {
     }
 
     public RoleEntity(RoleEnum role, Set<UserEntity> userEntities) {
         this.role = role;
-        //this.userEntities = userEntities;
+        this.userEntities = userEntities;
     }
 
     public Long getId() {
@@ -49,13 +49,13 @@ public class RoleEntity {
         this.role = role;
     }
 
-    /*public Set<UserEntity> getUserEntities() {
+    public Set<UserEntity> getUserEntities() {
         return userEntities;
     }
 
     public void setUserEntities(Set<UserEntity> userEntities) {
         this.userEntities = userEntities;
-    }*/
+    }
 
     @Override
     public boolean equals(Object o) {

@@ -42,6 +42,9 @@ public class SignUpController {
 
         if(userService.save(user) != null)
             model.addAttribute(CURRENT_USER, user);
+        else {
+            model.addAttribute(CURRENT_USER, new User());
+        }
 
         //Ne pas oublier de gerer l'erreur du au au mot de passe non identiques
         if(errors.hasErrors())
