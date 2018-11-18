@@ -5,6 +5,9 @@ import herve.learning.securite.dataAccess.repository.UserRepository;
 import herve.learning.securite.dataAccess.util.UserProviderConverter;
 import herve.learning.securite.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +16,7 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
-public class UserDAO {
+public class UserDAO implements UserDetailsService {
 
 
     @Autowired
@@ -38,5 +41,16 @@ public class UserDAO {
         UserEntity userEntity = userRepository.save(userProviderConverter.userToUserEntity(user));
 
         return userProviderConverter.userEntityToUser(userEntity);
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+        UserDetails user = userRepository.findByUsername(username);
+
+        if(user != null)
+            return user;
+
+        throw  new UsernameNotFoundException("User not founded");
     }
 }
