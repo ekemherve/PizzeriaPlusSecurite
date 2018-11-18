@@ -1,18 +1,29 @@
-package herve.learning.securite.model;
+package herve.learning.securite.dataAccess.entity;
 
 
+import herve.learning.securite.model.Pizza;
+
+import javax.persistence.*;
 import java.util.Objects;
 
-public class Pizza {
+@Entity
+@Table(name = "pizzas")
+public class PizzaEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "description")
     private String description;
 
-    public Pizza() {
+    public PizzaEntity() {
     }
 
-    public Pizza(Long id, String name, String description) {
+    public PizzaEntity(Long id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
