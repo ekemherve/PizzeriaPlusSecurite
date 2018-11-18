@@ -19,7 +19,7 @@ public class SecuriteApplication {
         SpringApplication.run(SecuriteApplication.class, args);
     }
 
-    @Bean
+    /*@Bean
     CommandLineRunner commandLineRunner(){
 
         return args -> {
@@ -33,5 +33,5 @@ public class SecuriteApplication {
             roleRepository.save(user);
             roleRepository.save(admin);
         };
-    }
+    }*/
 }

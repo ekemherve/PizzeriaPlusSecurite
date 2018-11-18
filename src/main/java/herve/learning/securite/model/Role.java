@@ -1,10 +1,12 @@
 package herve.learning.securite.model;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class Role {
+public class Role implements GrantedAuthority {
 
     private Long id;
 
@@ -70,5 +72,10 @@ public class Role {
     @Override
     public String toString() {
         return ""+ roleEnum;
+    }
+
+    @Override
+    public String getAuthority() {
+        return roleEnum.getName();
     }
 }

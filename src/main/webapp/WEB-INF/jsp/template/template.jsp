@@ -29,7 +29,7 @@
                 </li>
             </ul>
 
-            <ul class="navbar-nav mr-auto ">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <span class="navbar-text " style="color: cadetblue">
                     <sec:authorize access="isAuthenticated()">
                         <sec:authentication property="principal.username"/>
@@ -37,22 +37,32 @@
                     <c:if test="${currentUser != null && currentUser.username != null}">Bienvenu(e) ${currentUser.firstname}</c:if>
                 </span>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item">
+            <ul class="navbar-nav navbar-right ">
+                <li class="nav-item mr-2">
                     <sec:authorize access="isAuthenticated()">
-                        <ul class="nav navbar-nav">
+                        <ul class="navbar-nav">
                             <%--<li style="color: cadetblue"><sec:authentication property="principal.username"/></li>--%>
-                            <li class="nav-item"><a href="${pageContext.request.contextPath}/logout" class ="btn btn-warning btn-sm">Logout</a></li>
+                            <li class="nav-item"><a href="${pageContext.request.contextPath}/logout" class =" nav-link btn btn-warning btn-sm">Logout</a></li>
                         </ul>
                     </sec:authorize>
                     <sec:authorize access="!isAuthenticated()">
-                        <%--<ul class="nav navbar-nav">--%>
-                            <li class="nav-item"><a href="${pageContext.request.contextPath}/login" class ="btn btn-warning btn-sm">Login</a></li>
-                        <%--</ul>--%>
+                        <ul class="navbar-nav">
+                            <li class="nav-item mr-2">
+                                <a href="${pageContext.request.contextPath}/login" class =" nav-link btn btn-outline-success btn-sm-mr-2">
+                                    Login
+                                </a>
+                            </li>
+                            <li class="nav-item mr-2"><span class="navbar-text">or</span></li>
+                            <li class="nav-item">
+                                <a href="${pageContext.request.contextPath}/signup" class=" nav-link btn btn-outline-success btn-sm-mr-2">
+                                    SignUp
+                                </a>
+                            </li>
+                        </ul>
                     </sec:authorize>
                 </li>
-                <li>
-                    <a href="${pageContext.request.contextPath}/panier"  class ="btn btn-primary btn-sm">
+                <li class="nav-item">
+                    <a href="${pageContext.request.contextPath}/panier"  class =" nav-link btn btn-primary btn-sm">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                         Shopping Cart
                         <span class="badge">

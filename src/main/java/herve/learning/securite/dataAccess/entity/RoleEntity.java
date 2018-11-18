@@ -2,6 +2,7 @@ package herve.learning.securite.dataAccess.entity;
 
 import herve.learning.securite.model.RoleEnum;
 import herve.learning.securite.model.User;
+import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -11,7 +12,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "Roles")
-public class RoleEntity {
+public class RoleEntity implements GrantedAuthority {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -76,5 +77,10 @@ public class RoleEntity {
                 "id=" + id +
                 ", role=" + role +
                 '}';
+    }
+
+    @Override
+    public String getAuthority() {
+        return role.getName();
     }
 }
